@@ -37,6 +37,11 @@
                 }
             @endif
 
+            .navbar-laravel {
+                /* background-color: #ffffffdb; */
+                /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.54); */
+            }
+
         </style>
 
         {{-- Scripts --}}
@@ -51,6 +56,118 @@
         @endif
 
         @yield('head')
+        <style>
+            #donate:hover {
+                background: #007bff;
+            }
+
+            #donate:hover > a {
+                color: white!important;
+            }
+            .text-muted {
+                color: #59a6f8 !important;
+            }
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 10000;
+                top: 0;
+                right: 0;
+                background-color: rgb(11, 84, 201);
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #e8ecf1;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                left: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+            #app {
+                transition: margin-right .5s;
+                /* padding: 16px; */
+            }
+
+            @media screen and (max-height: 450px) {
+                .sidenav {padding-top: 15px;}
+                .sidenav a {font-size: 18px;}
+            }
+            .text-blend-white {
+                color: #fff!important;
+                mix-blend-mode: difference;
+            }
+            .text-blend-blue {
+                color: #006DFF;
+                mix-blend-mode: difference;
+            }
+
+            .text-primary {
+                color: #006DFF!important;
+            }
+            .bg-blue {
+                background: #006DFF!important;
+                color: #fff!important;
+            }
+            .btn:hover {
+                transform: scale(1.2);
+            }
+
+            .accordion .btn:hover {
+                transform: scale(1);
+            }
+
+            section#member-list .card.card-cascade:hover,
+            section#team-list .card.card-cascade:hover {
+                background: #006dff;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            section#member-list .card.card-cascade:hover p.card-title,
+            section#team-list .card.card-cascade:hover p.card-title {
+                color: #0c0c0c!important;
+            }
+
+            .fa.small {
+                font-size: 50%;
+                font-weight: 400;
+                cursor: pointer;
+            }
+
+            button, [type=button], [type=reset], [type=submit] {
+                -webkit-appearance: none;
+            }
+
+            #home .hero {
+                z-index: 10;
+                background: none
+            }
+            .hero {
+                z-index: 10;
+                background: rgba(0,0,0,.7)
+            }
+            p {
+                line-height: 1.5;
+            }
+        </style>
 
     </head>
     <body>
@@ -58,7 +175,7 @@
 
             @include('partials.nav')
 
-            <main class="py-4">
+            <main class="py-0">
 
                 <div class="container">
                     <div class="row">
@@ -73,6 +190,13 @@
             </main>
 
         </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
 
         {{-- Scripts --}}
         <script src="{{ mix('/js/app.js') }}"></script>
@@ -82,6 +206,16 @@
         @endif
         @include('scripts.drop-down-nav')
         @yield('footer_scripts')
-
+        <script>
+            function openNav() {
+              document.getElementById("mySidenav").style.width = "420px";
+              document.getElementById("app").style.marginRight = "420px";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+              document.getElementById("app").style.marginRight= "0";
+            }
+        </script>
     </body>
 </html>
