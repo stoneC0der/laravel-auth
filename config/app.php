@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'POVERTY WATCH AFRICA'),
+    'short_name' => env('APP_SHORT_NAME', 'PWA'),
 
     /*
     |--------------------------------------------------------------------------
