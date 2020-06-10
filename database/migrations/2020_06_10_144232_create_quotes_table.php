@@ -15,6 +15,12 @@ class CreateQuotesTable extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('job_position')->nullable();
+            $table->string('region')->nullable();
+            $table->string('quote');
+            $table->string('image');
             $table->timestamps();
         });
     }
