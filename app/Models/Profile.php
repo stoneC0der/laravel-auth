@@ -28,6 +28,8 @@ class Profile extends Model
      * @var array
      */
     protected $fillable = [
+        'function',
+        'employer',
         'theme_id',
         'location',
         'bio',
