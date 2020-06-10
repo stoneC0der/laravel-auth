@@ -1,0 +1,71 @@
+@import "variables";
+
+.bg-primary {
+    background-color: $brand-primary;
+}
+.bg-primary-50 {
+    background-color: #3796fb;
+}
+.bg-purple {
+    background-color: $brand-purple;
+}
+.bg-purple-50 {
+    background-color: $brand-purple-50;
+}
+
+.text-primary {
+    color: $brand-primary;
+}
+.text-primary-50 {
+    color: #3796fbbb;
+}
+
+
+.text-ellipsis {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+}
+
+::placeholder,
+select  option {
+    color: #3796fbbb;
+}
+
+.tick-border-primary {
+    border-top: 6px solid #3796fb;
+}
+
+.tick-border-white {
+    border-top: 6px solid #8dc4ff;
+}
+
+@media (min-width: 576px) {
+    .container-sm, .container {
+        max-width: 620px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container-md, .container-sm, .container {
+        max-width: 860px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container-lg, .container-md, .container-sm, .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1200px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1, .h1 {
+        font-size: 1.65rem;
+    }
+}

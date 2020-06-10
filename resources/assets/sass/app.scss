@@ -7,6 +7,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Slick-slide
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.scss';
+
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -38,3 +42,5 @@
 @import "hideShowPassword";
 @import "visibility";
 @import "user-profile";
+@import "dropdown";
+@import "custom";
