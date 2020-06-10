@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Profile;
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use jeremykenedy\LaravelRoles\Models\Role;
@@ -18,6 +19,16 @@ class UsersTableSeeder extends Seeder
         $profile = new Profile();
         $adminRole = Role::whereName('Admin')->first();
         $userRole = Role::whereName('User')->first();
+
+        // Member/User team
+        $boardTeam = Team::where('name','BOARD')->first();
+        $advisorsTeam = Team::where('name','ADVISORS')->first();
+        $businessDevelopmentTeam = Team::where('name','BUSINESS DEVELOPMENT')->first();
+        $socialEntrepreneursTeam = Team::where('name','SOCIAL ENTREPRENEURS')->first();
+        $legalTeam = Team::where('name','LEGAL')->first();
+        $strategicPartnershipTeam = Team::Where('name','STRATEGIC PARTNERSHIP')->first();
+        $fundRaising = Team::where('name','FUND RAISING')->first();
+        $grantAndProjectManagementTeam = Team::where('name','GRANT & PROJECT MANAGEMENT')->first();
 
         // Seed test admin
         $seededAdminEmail = 'admin@admin.com';
@@ -61,12 +72,12 @@ class UsersTableSeeder extends Seeder
         }
 
         // Seed test users
-        // $user = factory(App\Models\Profile::class, 5)->create();
-        // $users = User::All();
-        // foreach ($users as $user) {
-        //     if (!($user->isAdmin()) && !($user->isUnverified())) {
-        //         $user->attachRole($userRole);
-        //     }
-        // }
+        $user = factory(App\Models\Profile::class, 500)->create();
+        $users = User::All();
+        foreach ($users as $user) {
+            if (!($user->isAdmin()) && !($user->isUnverified())) {
+                $user->attachRole($userRole);
+            }
+        }
     }
 }
