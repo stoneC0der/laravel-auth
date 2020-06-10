@@ -15,6 +15,9 @@ class CreateQuoteCategoriesTable extends Migration
     {
         Schema::create('quote_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name')->nullable();
+            $table->unsignedBigInteger('page_id')->index();
+            $table->foreign('page_id')->references('id')->on('Pages')->onDelete('cascade');
             $table->timestamps();
         });
     }
