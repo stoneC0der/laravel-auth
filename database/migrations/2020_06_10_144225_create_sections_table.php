@@ -14,7 +14,18 @@ class CreateSectionsTable extends Migration
     public function up()
     {
         Schema::create('sections', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned()->index();
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->text('content')->nullable();
+            $table->unsignedBigInteger('page_id')->index();
+            $table->foreign('page_id')->references('id')->on('Pages')->onDelete('cascade');
+            $table->string('image')->nullable();
+            $table->string('button_text');
+            $table->string('link')->nullable();
+            $table->boolean('has_file')->default(false);
+            $table->string('file')->nullable();
+            $table->boolean('has_article')->default(false);
             $table->timestamps();
         });
     }
