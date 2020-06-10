@@ -65,6 +65,10 @@ class User extends Authenticatable
         'deleted_at',
     ];
 
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
     /**
      * Build Social Relationships.
      *
