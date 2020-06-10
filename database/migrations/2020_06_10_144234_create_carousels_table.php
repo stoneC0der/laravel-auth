@@ -15,6 +15,15 @@ class CreateCarouselsTable extends Migration
     {
         Schema::create('carousels', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->string('subtitle')->nullable();
+            $table->string('image');
+            $table->string('button_text')->nullable();
+            $table->string('link')->nullable();
+            $table->boolean('has_file')->default(false);
+            $table->string('file')->nullable();
+            $table->unsignedBigInteger('page_i')->index();
+            $table->foreign('page_id')->references('id')->on('Pages')->onDelete('cascade');
             $table->timestamps();
         });
     }
