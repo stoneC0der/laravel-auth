@@ -14,15 +14,84 @@
 */
 
 // Homepage Route
-Route::group(['middleware' => ['web', 'checkblocked']], function () {
-    Route::get('/', 'WelcomeController@welcome')->name('welcome');
-});
+// Route::group(['middleware' => ['web', 'checkblocked']], function () {
+//     Route::get('/', 'WelcomeController@welcome')->name('welcome');
+// });
 
 // Authentication Routes
 Auth::routes();
 
 // Public Routes
 Route::group(['middleware' => ['web', 'activity', 'checkblocked']], function () {
+
+    Route::get('/', 'WelcomeController@welcome')->name('welcome');
+
+    /*
+    |
+    |
+    | ABOUT
+    |
+    |
+    */
+    Route::get('/about/about-us', 'AboutController@aboutUs')->name('about-us');
+    Route::get('/about/manifesto', 'AboutController@manifesto')->name('manifesto');
+    Route::get('/about/our-team', 'AboutController@team')->name('team');
+    Route::get('/about/our-team/{category}', 'AboutController@teamCategory')->name('team_category');
+    Route::get('/about/partners', 'AboutController@partners')->name('partners');
+    Route::get('/about/corporate-partners', 'AboutController@corporatePartners')->name('corporate-partners');
+    Route::get('/about/reports', 'AboutController@reports')->name('reports');
+    Route::get('/about/annual-report', 'AboutController@annualReport')->name('annual-report');
+
+    /*
+    |
+    |
+    | INVESTMENTS
+    |
+    |
+    */
+    Route::get('/investments/our-approach', 'InvestmentController@ourApproach')->name('our-approach');
+    Route::get('/investments/companies', 'InvestmentController@companies')->name('companies');
+    Route::get('/investments/regions', 'InvestmentController@regions')->name('regions');
+    Route::get('/investments/sectors', 'InvestmentController@sectors')->name('sectors');
+    Route::get('/investments/investments-principles', 'InvestmentController@investmentsPrinciples')->name('investPrinciples');
+
+    /*
+    |
+    |
+    | MEMBERSHIP
+    |
+    |
+    */
+    Route::get('/membership/about', 'MembershipController@about')->name('about-membership');
+    Route::get('/membership/fellows', 'MembershipController@Fellows')->name('fellows');
+    Route::get('/membership/course-overview', 'MembershipController@course')->name('course-overview');
+    Route::get('/membership/faqs', 'MembershipController@faqs')->name('faqs');
+    Route::get('/membership/regions', 'MembershipController@regions')->name('membership-regions');
+
+    /*
+    |
+    |
+    | AREAS OF INTEREST
+    |
+    |
+    */
+    Route::get('/areas-of-interest/education-and-entrepreneurship', 'AreasOfInterestController@educationAndEntrepreneurship')->name('educEntrepreneurship');
+    Route::get('/areas-of-interest/human-rights', 'AreasOfInterestController@humanRights')->name('humanRights');
+    Route::get('/areas-of-interest/consumer-rights', 'AreasOfInterestController@consumerRights')->name('consumerRights');
+    Route::get('/areas-of-interest/good-governance-leadership', 'AreasOfInterestController@goodGovernanceAndLeadership')->name('goodGovernanceAndLeadership');
+    Route::get('/areas-of-interest/fight-against-corruption', 'AreasOfInterestController@fightAgainstCorruption')->name('fightAgainstCorruption');
+    Route::get('/areas-of-interest/environmental-protection', 'AreasOfInterestController@environmentalProtection')->name('environmentalProtection');
+    Route::get('/areas-of-interest/corporate-social-responsibility', 'AreasOfInterestController@corporateAndSocialResponsibility')->name('corporateAndSocialResponsibility');
+
+    /*
+    |
+    |
+    | BLOG
+    |
+    |
+    */
+    Route::get('/blog/posts', 'BlogController@index')->name('blog.posts');
+    
 
     // Activation Routes
     Route::get('/activate', ['as' => 'activate', 'uses' => 'Auth\ActivateController@initial']);
